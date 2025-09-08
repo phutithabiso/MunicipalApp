@@ -7,6 +7,7 @@ namespace MunicipalApp
 {
     public partial class ReportIssuesForm : Form
     {
+        
         private string attachedFilePath = string.Empty;
         private string reportsFile = Path.Combine(Application.StartupPath, "Reports.csv");
 
@@ -87,7 +88,7 @@ namespace MunicipalApp
                 MessageBox.Show($"Error updating progress: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // ---------- PROGRESS BAR ANIMATION ----------
         private async Task UpdateProgress(int targetValue)
         {
             while (pbProgress.Value < targetValue)
@@ -124,7 +125,7 @@ namespace MunicipalApp
                 MessageBox.Show($"Error attaching file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // --------- SUBMIT REPORT ----------
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             try
