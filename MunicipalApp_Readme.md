@@ -1,118 +1,151 @@
-# MunicipalApp
+# 🏙️ Local Events and Announcements Application
 
-**Version:** 1.0  
-**Author:** Phaka Phuti Thabiso  
-**Date:** 2025-09-08  
-
----
-
-## Overview
-
-MunicipalApp is a **Windows Forms C# application** designed for municipal residents to interact with local services.  
-
-**Key Features:**  
-- **Report Issues:** Submit complaints/issues with optional file attachments.  
-- **Local Events:** Placeholder for upcoming municipal events.  
-- **Service Status:** Placeholder for monitoring municipal service statuses.  
-- **Progress Tracking:** Step-by-step guidance for submitting reports.  
-- **Data Persistence:** Reports are saved in a CSV file and displayed within the app.  
+## 📘 Overview
+The **Local Events and Announcements Application** is a C# program designed to help users discover, filter, and view community events efficiently.  
+It integrates **data structures and algorithms** such as **stacks, queues, priority queues, dictionaries, sorted dictionaries, and sets**, and includes an **event recommendation system** that suggests relevant events based on user searches.
 
 ---
 
-## Project Structure
-
-MunicipalApp (Solution)
-├── MunicipalApp (Project)
-│ ├── Properties
-│ │ ├── AssemblyInfo.cs
-│ │ ├── Resources.resx
-│ │ └── Settings.settings
-│ ├── References
-│ ├── App.config
-│ ├── Form1.cs
-│ ├── Form1.Designer.cs
-│ ├── Form1.resx
-│ ├── Program.cs
-│ ├── Report.cs
-│ ├── ReportIssuesForm.cs
-│ ├── ReportIssuesForm.Designer.cs
-│ └── ReportIssuesForm.resx
-├── MunicipalApp.sln
-├── README.md
-└── MunicipalApp_Readme.pdf
-
-
-> **Notes:**  
-> - `Form1` is the **Main Menu** form.  
-> - `ReportIssuesForm` handles **report submission**.  
-> - `Report.cs` contains the **data model** for reports.  
+## 🧠 Objectives
+This project demonstrates:
+- Application of **data structures** for efficient data management.
+- Use of **collections** (Queues, Stacks, Priority Queues, Dictionaries, Sets).
+- **Recommendation system** based on user search history.
+- A **functional, interactive UI** (Windows Forms or Console-based).
 
 ---
 
-## Prerequisites
+## ⚙️ Technical Requirements & Implementation
 
-- **IDE:** Visual Studio 2019 or 2022  
-- **.NET Framework:** 4.7.2 or higher  
+### 1️⃣ Stacks, Queues, Priority Queues (15 Marks)
+**Purpose:** Manage event-related workflows efficiently.  
+**Implementation:**
+- **Queue** – Handles *upcoming events* in chronological order.  
+- **Stack** – Tracks *recently viewed events*.  
+- **PriorityQueue** – Prioritizes *urgent events* (soonest first).
 
----
-
-## How to Compile and Run
-
-1. Open **Visual Studio**.  
-2. Click **File → Open → Project/Solution**.  
-3. Select `MunicipalApp.sln` to open the solution.  
-4. Build the project: **Build → Build Solution** (`Ctrl+Shift+B`).  
-5. Run the application: **F5** or click **Start**.  
-6. The **Main Menu** (`Form1`) will appear.  
-
----
-
-## How to Use the System
-
-### Main Menu
-- **Report Issues:** Opens the report form.  
-- **Local Events:** Displays “coming soon” message.  
-- **Service Status:** Displays “coming soon” message.  
-
-### Reporting an Issue
-1. Click **Report Issues**.  
-2. Fill in all fields:
-   - **Report Name** (required)  
-   - **Location** (required)  
-   - **Category** (dropdown, required)  
-   - **Description** (required)  
-3. Optional: Attach an image/file via **Attach Media**.  
-4. Follow the **progress bar and step indicator** to complete all steps.  
-5. Click **Submit**:
-   - Saves report to `Reports.csv`.  
-   - Displays the report in the ListBox.  
-6. Click **Back** to return to the Main Menu.  
+```csharp
+Queue<Event> upcomingEvents = new Queue<Event>();
+Stack<Event> recentlyViewed = new Stack<Event>();
+PriorityQueue<Event, DateTime> urgentEvents = new PriorityQueue<Event, DateTime>();
+```
 
 ---
 
-## Data Storage
+### 2️⃣ Hash Tables, Dictionaries, Sorted Dictionaries (15 Marks)
+**Purpose:** Organize and retrieve event information quickly.  
+**Implementation:**
+- **Dictionary** – Stores events by title for quick lookups.  
+- **SortedDictionary** – Organizes events by date for sorted listings.  
+- **HashSet** – Maintains unique event categories.
 
-- Reports are saved in **Reports.csv** in the application directory.  
-- Each record contains:
-  - Report Name  
-  - Location  
-  - Category  
-  - Description  
-  - File attachment path  
-  - Submission timestamp  
+```csharp
+Dictionary<string, Event> eventsByTitle = new Dictionary<string, Event>();
+SortedDictionary<DateTime, List<Event>> eventsByDate = new SortedDictionary<DateTime, List<Event>>();
+HashSet<string> categories = new HashSet<string>();
+```
+
+---
+
+### 3️⃣ Sets (10 Marks)
+**Purpose:** Maintain **unique categories or event dates** to avoid duplication.
+
+```csharp
+HashSet<string> uniqueCategories = new HashSet<string>();
+uniqueCategories.Add("Music");
+uniqueCategories.Add("Sports");
+```
 
 ---
 
-## Future Enhancements
+### 4️⃣ Recommendation Feature (30 Marks)
+**Purpose:** Suggest related events based on user searches and preferences.
 
-- Fully implement **Local Events** and **Service Status** features.  
-- Integrate a **database** for persistent storage.  
-- Add **user authentication** for residents and staff.  
-- Improve **UI/UX design**.  
-- Enable **exporting reports** to PDF or Excel.  
+**Implementation Steps:**
+1. Track user search frequency in a `Dictionary<string, int>`.
+2. Identify the most frequently searched category.
+3. Recommend events within that category.
+
+```csharp
+Dictionary<string, int> userSearchCounts = new Dictionary<string, int>();
+
+void TrackSearch(string category)
+{
+    if (userSearchCounts.ContainsKey(category))
+        userSearchCounts[category]++;
+    else
+        userSearchCounts[category] = 1;
+}
+
+List<Event> RecommendEvents()
+{
+    string topCategory = userSearchCounts.OrderByDescending(x => x.Value).First().Key;
+    return eventsByTitle.Values.Where(e => e.Category == topCategory).ToList();
+}
+```
+
+**Output Example:**
+```
+Recommended Events:
+- Music Festival (Music) on 2025/12/01
+- Jazz Night (Music) on 2025/12/03
+```
 
 ---
----
+
+## 🧩 Data Structure Summary
+
+| Feature | Data Structure | Purpose |
+|----------|----------------|----------|
+| Upcoming Events | Queue | FIFO order for event scheduling |
+| Recently Viewed | Stack | LIFO order for viewing history |
+| Urgent Events | PriorityQueue | Prioritize soonest events |
+| Event Lookup | Dictionary | Fast lookup by event title |
+| Date Sorting | SortedDictionary | Retrieve events by date |
+| Unique Categories | HashSet | Prevent duplicate categories |
+| Recommendation | Dictionary + Algorithm | Suggest similar events |
+
 ---
 
- 
+## 🖥️ How to Run the Project
+
+### **Requirements**
+- Visual Studio 2022 or later  
+- .NET 6 or newer  
+- Windows OS  
+
+### **Steps**
+1. Clone or download the project folder.  
+2. Open the solution file (`MunicipalApp.sln`) in Visual Studio.  
+3. Build the project (`Ctrl + Shift + B`).  
+4. Run the application (`F5` or ▶️ button).  
+5. Use the filters (category/date) and search events.  
+6. The recommendation list updates dynamically based on user activity.
+
+---
+
+## 🧪 Example Features
+✅ Search for local events by category or date  
+✅ View upcoming and urgent events  
+✅ Track recently viewed events  
+✅ Automatically get recommendations based on search patterns  
+✅ Display unique event categories without duplication  
+
+---
+
+## 🧑‍💻 Author
+**Name:** Phaka Phuti Thabiso  
+
+**Module:** Application Development – Data Structures & Algorithms  
+**Year:** 2025  
+
+---
+
+## 🏁 Evaluation Summary
+| Component | Marks | Description |
+|------------|--------|-------------|
+| Stacks / Queues / Priority Queues | 15 | Efficient event data management |
+| Hash Tables / Dictionaries / Sorted Dictionaries | 15 | Fast search, retrieval, and sorting |
+| Sets | 10 | Unique category/date handling |
+| Recommendation Feature | 30 | Personalized suggestions |
+| **Total** | **70 Marks** | Functional + technical features |
