@@ -37,13 +37,12 @@ namespace MunicipalApp
         // Placeholder for Local Events feature
         private void btnLocalEvents_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                "Local Events feature is coming soon!",
-                "Information",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+
+            LocalEventsForm localEventsForm = new LocalEventsForm();
+            localEventsForm.ShowDialog();
         }
+
+        
 
         // Placeholder for Service Status feature
         private void btnServiceStatus_Click(object sender, EventArgs e)
@@ -63,3 +62,4 @@ namespace MunicipalApp
         }
     }
 }
+ 

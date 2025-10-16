@@ -187,5 +187,10 @@ namespace MunicipalApp
                 dgvReports.Rows.Add(reportName, location, category, description, img);
             }
         }
+
+        private void btnAttachMedia_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
