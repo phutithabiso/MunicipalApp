@@ -1,4 +1,6 @@
-﻿namespace MunicipalApp
+﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+namespace MunicipalApp
 {
     partial class Form1
     {
@@ -32,7 +34,7 @@
             this.btnReportIssues.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReportIssues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportIssues.ForeColor = System.Drawing.Color.White;
-            this.btnReportIssues.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold); // increased font
+            this.btnReportIssues.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold); 
             this.btnReportIssues.Location = new System.Drawing.Point(53, 178);
             this.btnReportIssues.Name = "btnReportIssues";
             this.btnReportIssues.Size = new System.Drawing.Size(694, 94);
@@ -42,10 +44,11 @@
             this.btnReportIssues.Click += new System.EventHandler(this.btnReportIssues_Click);
             // 
             // btnLocalEvents
+           // Add MainForm UI layout and navigation buttons for Report, Events, and Status
             // 
-            this.btnLocalEvents.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnLocalEvents.BackColor = System.Drawing.Color.BlueViolet;
             this.btnLocalEvents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLocalEvents.Enabled = false;
+            this.btnLocalEvents.Enabled = true;
             this.btnLocalEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLocalEvents.ForeColor = System.Drawing.Color.White;
             this.btnLocalEvents.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold); // increased font
@@ -64,7 +67,7 @@
             this.btnServiceStatus.Enabled = false;
             this.btnServiceStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServiceStatus.ForeColor = System.Drawing.Color.White;
-            this.btnServiceStatus.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold); // increased font
+            this.btnServiceStatus.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold); 
             this.btnServiceStatus.Location = new System.Drawing.Point(53, 378);
             this.btnServiceStatus.Name = "btnServiceStatus";
             this.btnServiceStatus.Size = new System.Drawing.Size(694, 94);
@@ -76,7 +79,7 @@
             // lblTitle
             // 
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold); // increased font
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblTitle.Location = new System.Drawing.Point(53, 50);
             this.lblTitle.Name = "lblTitle";
