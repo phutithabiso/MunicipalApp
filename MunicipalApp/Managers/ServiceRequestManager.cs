@@ -13,12 +13,13 @@ namespace MunicipalApp.Managers
         private BinarySearchTree bst = new BinarySearchTree();
         private MinHeap heap = new MinHeap();
         private Graph graph = new Graph();
+        // ✅ Add a graph to represent relationships between service requests
 
         public void AddRequest(ServiceRequest req)
         {
             bst.Insert(req);
             heap.Insert(req);
-            graph.AddNode(req.RequestId); // ✅ Ensure every request is a graph node
+            graph.AddNode(req.RequestId); 
         }
 
         public ServiceRequest FindRequest(int id)
@@ -46,7 +47,7 @@ namespace MunicipalApp.Managers
 
         public List<int> TraverseGraphFrom(int id)
         {
-            return graph.BreadthFirstSearch(id); // ✅ Will no longer throw errors
+            return graph.BreadthFirstSearch(id); 
         }
     }
 }
