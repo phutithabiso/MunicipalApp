@@ -64,7 +64,7 @@ namespace MunicipalApp
             // 
             this.btnServiceStatus.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnServiceStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnServiceStatus.Enabled = false;
+            this.btnServiceStatus.Enabled = true;
             this.btnServiceStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServiceStatus.ForeColor = System.Drawing.Color.White;
             this.btnServiceStatus.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold); 

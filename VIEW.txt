@@ -1,0 +1,3 @@
+Please view readme file  before run the application.
+
+https://github.com/phutithabiso/MunicipalApp

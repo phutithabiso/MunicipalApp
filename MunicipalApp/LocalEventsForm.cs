@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace MunicipalApp
 {
@@ -17,7 +19,7 @@ namespace MunicipalApp
         {
             RefreshEventsList();
         }
-
+        // Load some sample events into the EventManager
         private void LoadSampleEvents()
         {
             // Sample events
@@ -33,6 +35,7 @@ namespace MunicipalApp
                     cmbCategoryFilter.Items.Add(category);
             }
         }
+        // Refresh the events list display
 
         private void RefreshEventsList()
         {
@@ -45,7 +48,7 @@ namespace MunicipalApp
                 }
             }
         }
-
+        // Search button click event
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             lstEvents.Items.Clear();
@@ -65,10 +68,17 @@ namespace MunicipalApp
                 }
             }
         }
+     
+
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lstEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

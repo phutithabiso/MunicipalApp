@@ -47,13 +47,11 @@ namespace MunicipalApp
         // Placeholder for Service Status feature
         private void btnServiceStatus_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                "Service Status feature is coming soon!",
-                "Information",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+        
+            var statusForm = new ServiceRequestStatusForm();
+            statusForm.ShowDialog();
         }
+
 
         // Close the application when Main Menu form is closed
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

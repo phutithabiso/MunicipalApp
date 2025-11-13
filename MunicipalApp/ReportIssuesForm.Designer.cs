@@ -119,6 +119,7 @@ namespace MunicipalApp
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Size = new System.Drawing.Size(400, 34);
             this.txtLocation.TabIndex = 4;
+          //  this.txtLocation.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
             // 
             // lblCategory
             // 
@@ -246,7 +247,7 @@ namespace MunicipalApp
             this.dgvReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
