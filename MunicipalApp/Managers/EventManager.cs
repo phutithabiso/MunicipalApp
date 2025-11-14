@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
-namespace MunicipalApp
+using MunicipalApp.Models;
+namespace MunicipalApp.Managers
 {
     public class EventManager
     {

@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Xml.Linq;
+using MunicipalApp.Models;  
+using MunicipalApp.Managers;
 
 namespace MunicipalApp
 {

@@ -7,6 +7,7 @@ namespace MunicipalApp
     partial class ServiceRequestStatusForm
     {
         private System.ComponentModel.IContainer components = null;
+
         private Label lblTitle;
         private ListBox listBoxRequests;
         private Label lblSearch;
@@ -17,6 +18,10 @@ namespace MunicipalApp
         private TextBox txtDetails;
         private TreeView graphView;
 
+        private FlowLayoutPanel dsFlowPanel;
+        private Panel panelHeap, panelSorted, panelCategories, panelHistory, panelNavigation;
+        private ListBox listBoxHeap, listBoxSorted, listBoxCategories, listBoxHistory, listBoxNavigation;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -26,147 +31,186 @@ namespace MunicipalApp
 
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.listBoxRequests = new System.Windows.Forms.ListBox();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearchId = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.lblDetails = new System.Windows.Forms.Label();
-            this.txtDetails = new System.Windows.Forms.TextBox();
-            this.graphView = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblTitle.Location = new System.Drawing.Point(20, 15);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(446, 41);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Service Request Status Tracker";
-            // 
-            // listBoxRequests
-            // 
-            this.listBoxRequests.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.listBoxRequests.BackColor = System.Drawing.Color.Lavender;
-            this.listBoxRequests.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.listBoxRequests.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.listBoxRequests.ItemHeight = 23;
-            this.listBoxRequests.Location = new System.Drawing.Point(25, 70);
-            this.listBoxRequests.Name = "listBoxRequests";
-            this.listBoxRequests.Size = new System.Drawing.Size(400, 349);
-            this.listBoxRequests.TabIndex = 1;
-            this.listBoxRequests.SelectedIndexChanged += new System.EventHandler(this.listBoxRequests_SelectedIndexChanged);
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSearch.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblSearch.Location = new System.Drawing.Point(25, 430);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(149, 23);
-            this.lblSearch.TabIndex = 2;
-            this.lblSearch.Text = "Enter Request ID:";
-            // 
-            // txtSearchId
-            // 
-            this.txtSearchId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSearchId.Location = new System.Drawing.Point(150, 430);
-            this.txtSearchId.Name = "txtSearchId";
-            this.txtSearchId.Size = new System.Drawing.Size(120, 22);
-            this.txtSearchId.TabIndex = 3;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSearch.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(280, 430);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 25);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBack.BackColor = System.Drawing.Color.LightGray;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Location = new System.Drawing.Point(360, 430);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 25);
-            this.btnBack.TabIndex = 5;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // lblDetails
-            // 
-            this.lblDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDetails.AutoSize = true;
-            this.lblDetails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDetails.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblDetails.Location = new System.Drawing.Point(450, 15);
-            this.lblDetails.Name = "lblDetails";
-            this.lblDetails.Size = new System.Drawing.Size(165, 28);
-            this.lblDetails.TabIndex = 6;
-            this.lblDetails.Text = "Request Details:";
-            // 
-            // txtDetails
-            // 
-            this.txtDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDetails.BackColor = System.Drawing.Color.AliceBlue;
-            this.txtDetails.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtDetails.Location = new System.Drawing.Point(450, 50);
-            this.txtDetails.Multiline = true;
-            this.txtDetails.Name = "txtDetails";
-            this.txtDetails.ReadOnly = true;
-            this.txtDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDetails.Size = new System.Drawing.Size(320, 250);
-            this.txtDetails.TabIndex = 7;
-            this.txtDetails.TextChanged += new System.EventHandler(this.txtDetails_TextChanged_1);
-            // 
-            // graphView
-            // 
-            this.graphView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphView.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.graphView.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.graphView.ForeColor = System.Drawing.Color.Black;
-            this.graphView.Location = new System.Drawing.Point(450, 320);
-            this.graphView.Name = "graphView";
-            this.graphView.Size = new System.Drawing.Size(320, 250);
-            this.graphView.TabIndex = 8;
-            // 
-            // ServiceRequestStatusForm
-            // 
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.listBoxRequests);
-            this.Controls.Add(this.lblSearch);
-            this.Controls.Add(this.txtSearchId);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblDetails);
-            this.Controls.Add(this.txtDetails);
-            this.Controls.Add(this.graphView);
-            this.Name = "ServiceRequestStatusForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+
+            // Title
+            lblTitle = new Label
+            {
+                AutoSize = true,
+                Font = new Font("Segoe UI", 24F, FontStyle.Bold),
+                ForeColor = Color.DarkSlateBlue,
+                Location = new Point(20, 15),
+                Text = "Service Request Status Tracker",
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
+            };
+
+            // Requests ListBox
+            listBoxRequests = new ListBox
+            {
+                Location = new Point(20, 70),
+                Size = new Size(300, 300),
+                BackColor = Color.LightSteelBlue,
+                Font = new Font("Segoe UI", 10F),
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom
+            };
+            listBoxRequests.SelectedIndexChanged += listBoxRequests_SelectedIndexChanged;
+
+            // Request Details
+            lblDetails = new Label
+            {
+                Location = new Point(340, 15),
+                Font = new Font("Segoe UI", 12F, FontStyle.Bold),
+                ForeColor = Color.DarkGreen,
+                Text = "Request Details:",
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
+            };
+
+            txtDetails = new TextBox
+            {
+                Location = new Point(340, 50),
+               
+               Size = new Size(400, 120),
+                Multiline = true,
+                ReadOnly = true,
+                BackColor = Color.AliceBlue,
+                ForeColor = Color.DarkBlue,
+                ScrollBars = ScrollBars.Vertical,
+                Font = new Font("Segoe UI", 10F),
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
+            };
+
+            // Graph view
+            graphView = new TreeView
+            {
+                Location = new Point(340, 260),
+                Size = new Size(400, 120),
+                BackColor = Color.WhiteSmoke,
+                Font = new Font("Segoe UI", 10F),
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
+            };
+
+            // Search controls
+            lblSearch = new Label
+            {
+                Location = new Point(20, 380),
+                Text = "Enter Request ID:",
+                Font = new Font("Segoe UI", 10F, FontStyle.Bold),
+                ForeColor = Color.MidnightBlue,
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Left
+            };
+
+            txtSearchId = new TextBox
+            {
+                Location = new Point(150, 380),
+                Size = new Size(120, 22),
+                Font = new Font("Segoe UI", 10F),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Left
+            };
+
+            btnSearch = new Button
+            {
+                Location = new Point(280, 380),
+                Size = new Size(80, 28),
+                Text = "Search",
+                BackColor = Color.MediumSlateBlue,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Left
+            };
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.Click += btnSearch_Click;
+
+            btnBack = new Button
+            {
+                Location = new Point(370, 380),
+                Size = new Size(80, 28),
+                Text = "Back",
+                BackColor = Color.LightGray,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Left
+            };
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.Click += btnBack_Click;
+
+            // ----------------------------
+            // FlowLayoutPanel for DS panels
+            // ----------------------------
+            dsFlowPanel = new FlowLayoutPanel
+            {
+                Location = new Point(20, 420),
+                Size = new Size(860, 250),
+                AutoScroll = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = true,
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
+            };
+
+            // Panels for DS visualization
+            panelHeap = CreateDSPanel("MinHeap (Priority)", out listBoxHeap, Color.LavenderBlush);
+            panelSorted = CreateDSPanel("Sorted Dictionary", out listBoxSorted, Color.Lavender);
+            panelCategories = CreateDSPanel("Unique Statuses (Set)", out listBoxCategories, Color.Honeydew);
+            panelHistory = CreateDSPanel("Action History (Stack)", out listBoxHistory, Color.MistyRose);
+            panelNavigation = CreateDSPanel("Navigation Queue", out listBoxNavigation, Color.LemonChiffon);
+
+            dsFlowPanel.Controls.Add(panelHeap);
+            dsFlowPanel.Controls.Add(panelSorted);
+            dsFlowPanel.Controls.Add(panelCategories);
+            dsFlowPanel.Controls.Add(panelHistory);
+            dsFlowPanel.Controls.Add(panelNavigation);
+
+            // Form properties
+            this.ClientSize = new Size(900, 700);
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "Service Request Status";
+
+            // Add controls
+            this.Controls.Add(lblTitle);
+            this.Controls.Add(listBoxRequests);
+            this.Controls.Add(lblDetails);
+            this.Controls.Add(txtDetails);
+            this.Controls.Add(graphView);
+            this.Controls.Add(lblSearch);
+            this.Controls.Add(txtSearchId);
+            this.Controls.Add(btnSearch);
+            this.Controls.Add(btnBack);
+            this.Controls.Add(dsFlowPanel);
+
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
+        private Panel CreateDSPanel(string title, out ListBox listBox, Color backColor)
+        {
+            Panel panel = new Panel
+            {
+                Size = new Size(250, 120),
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White,
+                Margin = new Padding(10)
+            };
+
+            Label lbl = new Label
+            {
+                Text = title,
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                ForeColor = Color.Black,
+                Location = new Point(5, 5),
+                AutoSize = true
+            };
+
+            listBox = new ListBox
+            {
+                Location = new Point(5, 25),
+                Size = new Size(240, 90),
+                BackColor = backColor,
+                Font = new Font("Segoe UI", 9F)
+            };
+
+            panel.Controls.Add(lbl);
+            panel.Controls.Add(listBox);
+            return panel;
+        }
     }
 }
